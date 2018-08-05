@@ -1,0 +1,43 @@
+.columns {
+background: green;
+
+  .header{
+  font-family: Arial, sans-serif;
+  	@include grid(xs);
+	//grid-template-rows: minmax(200px, 1fr);NOT ADDING VALUES CONSISTENTLY ON EACH ROW
+
+  	.mainPost{
+	   	 @include grid-column(xs, 1, 14);
+	   	 background: grey;
+	   	 grid-row: 1/4;
+  	}
+  	.asidePost{
+  	  	background: yellow;
+
+  		@include grid-column(xs, 14, 21);
+  	}
+
+  	.asideCalendar{
+  		@include grid-column(xs, 12, 21);
+  		display: grid;
+    	grid-template-columns: repeat(6, 1fr);
+  		grid-template-rows: minmax(115px, 1fr);
+
+  		div{
+ 			&:nth-child(1){
+ 				background: black;
+ 				color: white;
+ 				    grid-column: 1 /6;
+ 			}	
+  			&:nth-child(2){
+  				background: blue;
+  				    grid-column: 6 / 7;
+  				a{
+  					display:block;
+  					color: black;
+  				}
+  			}
+  		}
+  	}
+  }
+}

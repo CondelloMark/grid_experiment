@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/transition.css"/>
+    <title>HTML5 Test Page</title>
+  </head>
+  <body>
+    <div class="container"></div>
+    <script>
+      const mixins = [{
+        name: 'transition',
+        description: 'This mixin will transition as many properties as necessary. See <a href="../../doc/sassdoc/index.html#animation-mixin-transition">sassdoc</a>.'
+      }, {
+        name: 'transition-opacity',
+        description: 'This mixin is a shortcut for transitioning the opacity of an element'
+      }, {
+        name: 'transition-transform',
+        description: 'This mixin is a shortcut for transitioning the transform of an element'
+      }];
+
+      const durations = ['short', 'default', 'medium', 'long'];
+      const easings = ['linear', 'ease', 'cubic', 'quint', 'circ', 'exp', 'elastic', 'bounce'];
+      const directions = ['in', 'out', 'in-out'];
+      const main = document.querySelector('.container');
+
+      mixins.forEach(( mixin ) => {
+        let h1 = document.createElement('h1');
+        let p = document.createElement('p');
+        p.innerHTML = mixin.description;
+        h1.innerText = `@include ${mixin.name}`;
+        main.appendChild(h1);
+        main.appendChild(p);
+
+        easings.forEach(( easing ) => {
+          let h2 = document.createElement('h2');
+          h2.innerText = easing;
+
+          main.appendChild(h2);
+
+          directions.forEach(( direction ) => {
+            let container = document.createElement('div');
+            durations.forEach(( duration ) => {
+              let link = document.createElement('a');
+
+
+              link.innerHTML = `${easing} // ${direction} // ${duration}`;
+              link.setAttribute('class', `${mixin.name} ${mixin.name}--${easing}-${direction} ${mixin.name}--${duration}`);
+              container.appendChild(link);
+            });
+
+            main.appendChild(container);
+          });
+        });
+      });
+    </script>
+  </div>

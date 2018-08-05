@@ -1,0 +1,104 @@
+@import '../../../ie-design-system';
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 60vw;
+
+  div {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: row;
+    width: 100%;
+
+    a {
+      margin: 20px;
+      width: 25%;
+    }
+  }
+}
+
+@mixin generate-variants($prefix) {
+  @each $key, $duration in $animation-duration {
+    .#{$prefix}--#{$key} {
+      transition-duration: $duration;
+    }
+  }
+
+  @each $key, $easing in $animation-easing {
+    @each $name, $function in map-get($animation-easing, $key) {
+      .#{$prefix}--#{$name}-#{$key} {
+        transition-timing-function: map-get(map-get($animation-easing, $key), $name);
+      }
+    }
+  }
+}
+
+
+.transition {
+  @include transition($transition: 'background-color, color, box-shadow, opacity');
+  $bg-color: #989a9c;
+  $fg-color: #000;
+  $border-color: #000;
+  align-items: center;
+  background-color: $bg-color;
+  box-shadow: inset 0 -2px 0 0 $border-color;
+  color: $fg-color;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  opacity: .5;
+  width: 200px;
+
+  &:hover {
+    $bg-color: #00c1d5;
+    $fg-color: #fff;
+    background-color: $bg-color;
+    box-shadow: inset 0 -8px 0 0 $border-color, 0 0 100px rgba($border-color, .25);
+    color: $fg-color;
+    opacity: 1;
+  }
+}
+
+@include generate-variants('transition');
+
+
+.transition-opacity {
+  @include transition-opacity();
+  $bg-color: #989a9c;
+  align-items: center;
+  background: $bg-color;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  opacity: .3;
+  width: 200px;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@include generate-variants('transition-opacity');
+
+.transition-transform {
+  @include transition-transform();
+  $bg-color: #989a9c;
+  align-items: center;
+  background: $bg-color;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  opacity: .89;
+  width: 200px;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@include generate-variants('transition-transform');
