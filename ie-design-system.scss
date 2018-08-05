@@ -1,0 +1,34 @@
+@charset 'utf-8';
+
+/// If you do not want to include normalize.css in your project, set this
+/// variable to false.
+///
+/// @group configuration
+/// @type Boolean
+$use-normalize: true !default;
+
+@import 'scss/vendor/normalize';
+
+@import 'scss/foundation/accessibility';
+@import 'scss/foundation/animation';
+@import 'scss/foundation/borders';
+@import 'scss/foundation/breakpoints';
+@import 'scss/foundation/colours';
+@import 'scss/foundation/grids';
+@import 'scss/foundation/spacing';
+@import 'scss/foundation/typography';
+
+@import 'scss/tokens/animation';
+@import 'scss/tokens/borders';
+@import 'scss/tokens/breakpoints';
+@import 'scss/tokens/colours';
+@import 'scss/tokens/grids';
+@import 'scss/tokens/spacing';
+@import 'scss/tokens/typography';
+
+@import 'scss/examples/grid';
+@import 'scss/examples/mmw_home';
+
+@if ($use-normalize) {
+  @include normalize();
+}
