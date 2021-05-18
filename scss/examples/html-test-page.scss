@@ -1,0 +1,97 @@
+ html {
+    scroll-behavior: smooth;
+
+ }
+ul {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    transition: height 1s, opacity 1s;
+
+    .hide {
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: height 1s, opacity 1s;
+    }
+}
+
+  #top {
+
+    @include grids();
+     font-family: font-family();
+     //grid-template-rows: 1fr 1fr;
+
+     > header {
+        @include grid-column(lg, 1, 13);
+
+        .inner {
+            @include grids();
+            @include grid-column(lg, 1, 13);
+            background-color: yellow;
+            position: fixed;
+            width: 100%;
+            @include grids();
+
+            .inner-content{
+                @include grid-column(lg, 3, 10);
+            }
+        }
+        // + section{
+        //     @include grid-column(lg, 1, 13);
+        // }
+    }
+
+    nav {
+        @include grid-column(lg, 3, 5);
+        background-color: #fff;
+
+
+        // ToDo: Create menu drop downs on hover
+       > ul {
+            position: fixed;
+            height: 100%;  
+            padding: 1rem 0;
+  
+        }
+
+        ul {
+
+            list-style: none;
+            li {
+                font-size: 1.25rem;
+                padding: .5rem 0;
+                a {
+                    text-decoration: none;
+                    color: #565656;
+                }
+                ul {
+                    padding: .25rem;
+
+                    li {
+                    padding: .25rem;
+                    font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        @include grid-column(lg, 5, 13);
+        background-color: #dadada;
+ 
+        @include grids();
+        > section {
+
+            @include grid-column(lg, 2, 9);
+ 
+        }
+    }
+
+    footer {
+        @include grid-column(lg, 1, 13);
+        background-color: #CFCFCF;
+    }
+  }
+ 

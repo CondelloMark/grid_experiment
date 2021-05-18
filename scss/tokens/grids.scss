@@ -5,7 +5,11 @@
 
 $grids: (
   xs: (
-    columns: 20,
+    columns: 7,
     gutter: 1rem
+  ),
+  lg: (
+    columns: 11,
+    gutter: 1.5rem
   )
 ) !default;

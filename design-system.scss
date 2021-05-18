@@ -26,8 +26,9 @@ $use-normalize: true !default;
 @import 'scss/tokens/spacing';
 @import 'scss/tokens/typography';
 
-@import 'scss/examples/grid';
+@import 'scss/examples/grid-demo';
 @import 'scss/examples/mmw_home';
+@import 'scss/examples/html-test-page';
 
 @if ($use-normalize) {
   @include normalize();

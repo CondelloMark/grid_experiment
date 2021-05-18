@@ -4,7 +4,7 @@
 ///
 /// @group breakpoints
 /// @access private
-/// @author David Johnson
+
 /// @param {String} $name [null]
 ///   The key.
 ///   - sm
@@ -20,6 +20,8 @@
 ///   A list of all the keys in the breakpoints map.
 ///
 /// @return {String} The next breakpoint
+
+//  ToDo: check this implementation
 @function breakpoint-next($name, $breakpoints: $breakpoints, $breakpoint-names: map-keys($breakpoints)) {
   $n: index($breakpoint-names, $name);
 
@@ -32,7 +34,7 @@
 ///
 /// @group breakpoints
 /// @access private
-/// @author David Johnson
+
 /// @param {String} $name [null]
 ///   The key.
 ///   - sm
@@ -57,7 +59,7 @@
 ///
 /// @group breakpoints
 /// @access private
-/// @author David Johnson
+
 /// @param {String} $name [null]
 ///   The key.
 ///   - sm
@@ -84,7 +86,7 @@
 ///
 /// @group breakpoints
 /// @access public
-/// @author David Johnson
+
 /// @param {String} $name [null]
 ///   The key.
 ///   - sm
@@ -124,7 +126,7 @@
 ///
 /// @group breakpoints
 /// @access public
-/// @author David Johnson
+
 /// @param {String} $name [null]
 ///   The key.
 ///   - sm
@@ -164,7 +166,7 @@
 ///
 /// @group breakpoints
 /// @access public
-/// @author David Johnson
+
 /// @param {String} $name [null]
 ///   The key.
 ///   - sm
@@ -204,7 +206,7 @@
 ///
 /// @group breakpoints
 /// @access public
-/// @author David Johnson
+
 /// @param {String} $lower [null]
 ///   A key.
 ///   - sm
@@ -248,7 +250,7 @@
 ///
 /// @group breakpoints
 /// @access public
-/// @author David Johnson
+
 /// @param {String} $ratio [null]
 ///   A key.
 ///   - 1

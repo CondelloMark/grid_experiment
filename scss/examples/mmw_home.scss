@@ -3,23 +3,31 @@ background: green;
 
   .header{
   font-family: Arial, sans-serif;
+  	@include grid(lg);
   	@include grid(xs);
-	//grid-template-rows: minmax(200px, 1fr);NOT ADDING VALUES CONSISTENTLY ON EACH ROW
 
   	.mainPost{
-	   	 @include grid-column(xs, 1, 14);
-	   	 background: grey;
-	   	 grid-row: 1/4;
+	   	@include grid-column(lg, 1, 14);
+        @include grid-column(xs, 1, 8);
+
+        background: grey;
+        grid-row: 1/4; //There should be a mixin for rows
   	}
   	.asidePost{
   	  	background: yellow;
-
-  		@include grid-column(xs, 14, 21);
+  		@include grid-column(lg, 14, 21);
+        @include grid-column(xs, 1, 5);
   	}
 
   	.asideCalendar{
-  		@include grid-column(xs, 12, 21);
-  		display: grid;
+  		@include grid-column(lg, 12, 21);
+        @include grid-column(xs, 5, 8);
+
+  		// display: grid;
+        @include grid(lg);
+        // This below should be only for xs screens
+        grid-row: 4/6;
+
     	grid-template-columns: repeat(6, 1fr);
   		grid-template-rows: minmax(115px, 1fr);
 
@@ -39,5 +47,10 @@ background: green;
   			}
   		}
   	}
+
+    .besideCalendar{
+        // @include grid-column(lg, 12, 21);
+        @include grid-column(xs, 1, 8);
+    }
   }
 }

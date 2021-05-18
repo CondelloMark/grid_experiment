@@ -1,20 +1,20 @@
 {
-  "name": "ie-design-system",
+  "name": "design-system",
   "version": "0.0.4",
-  "description": "IE Design System",
-  "main": "ie-design-system.scss",
+  "description": "Design System",
+  "main": "design-system.scss",
   "scripts": {
-    "dev": "sass ie-design-system.scss examples/ie-design-system.css --watch",
-    "build": "sassdoc scss/ && sass ie-design-system.scss examples/ie-design-system.css"
+    "dev": "sass design-system.scss examples/design-system.css --watch",
+    "build": "sassdoc scss/ && sass design-system.scss examples/design-system.css"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "node-modules": "^1.0.1",
-    "sass": "^1.10.1",
-    "sassdoc": "^2.5.0",
+    "sass": "^1.32.13",
+    "sassdoc": "^2.7.3",
     "stylelint": "^9.3.0",
-    "stylelint-declaration-strict-value": "^1.0.4",
+    "stylelint-declaration-strict-value": "^1.7.12",
     "stylelint-order": "^0.8.1",
     "stylelint-scss": "^3.1.3"
   }

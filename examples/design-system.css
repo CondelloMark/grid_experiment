@@ -1,16 +1,14 @@
-h1 {
-  color: blue;
-}
-
-h1 {
-  color: blue;
-}
-
 .container {
   display: grid;
-  grid-template-columns: repeat(20, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   grid-template-rows: auto;
-  grid-gap: 1rem 1rem;
+}
+@media (min-width: 970px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: auto;
+  }
 }
 .container .header,
 .container .footer,
@@ -26,8 +24,14 @@ h1 {
 }
 .container .header,
 .container .footer {
-  grid-column: 1 / 21;
+  grid-column: 1 / 8;
   background-color: #eee;
+}
+@media (min-width: 970px) {
+  .container .header,
+.container .footer {
+    grid-column: 1 / 13;
+  }
 }
 .container .header h1,
 .container .footer h1 {
@@ -35,36 +39,62 @@ h1 {
 }
 .container .main {
   display: grid;
-  grid-template-columns: repeat(20, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   grid-template-rows: auto;
-  grid-column: 1 / 21;
-  grid-gap: 1rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: auto;
+  grid-column: 1 / 13;
 }
-.container .section {
-  grid-column: 1 / 10;
+@media (min-width: 970px) {
+  .container .main {
+    grid-column: 1 / 21;
+  }
+}
+.container .main .section {
+  grid-column: 1 / 4;
   background-color: #bbb;
 }
-.container .aside {
-  grid-column: 10 / 13;
+@media (min-width: 970px) {
+  .container .main .section {
+    grid-column: 1 / 12;
+  }
+}
+.container .main .aside {
+  grid-column: 1 / 12;
   background-color: #aaa;
 }
-.container .offset-percent {
-  grid-column: 5 / 13;
+@media (min-width: 970px) {
+  .container .main .aside {
+    grid-column: 10 / 13;
+  }
+}
+.container .main .offset-percent {
+  grid-column: 2 / 8;
   background-color: #ccc;
 }
-.container .offset-index {
+.container .main .offset-index {
   grid-column: 5 / 10;
   background-color: #ccc;
 }
-.container .offset-double {
-  grid-column: 3 / 13;
+.container .main .offset-double {
+  grid-column: 3 / 6;
   background-color: #ccc;
+  color: red;
 }
-.container .one-container {
+.container .main .one-container {
   display: grid;
-  grid-template-columns: repeat(20, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   grid-template-rows: auto;
-  grid-column: 1 / 21;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: auto;
+  grid-column: 1 / 13;
+}
+@media (min-width: 970px) {
+  .container .main .one-container {
+    grid-column: 1 / 22;
+  }
 }
 
 .columns {
@@ -73,23 +103,44 @@ h1 {
 .columns .header {
   font-family: Arial, sans-serif;
   display: grid;
-  grid-template-columns: repeat(20, 1fr);
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
   grid-template-rows: auto;
 }
 .columns .header .mainPost {
-  grid-column: 1 / 14;
+  grid-column: 1 / 8;
   background: grey;
   grid-row: 1/4;
 }
+@media (min-width: 970px) {
+  .columns .header .mainPost {
+    grid-column: 1 / 14;
+  }
+}
 .columns .header .asidePost {
   background: yellow;
-  grid-column: 14 / 21;
+  grid-column: 1 / 5;
+}
+@media (min-width: 970px) {
+  .columns .header .asidePost {
+    grid-column: 14 / 21;
+  }
 }
 .columns .header .asideCalendar {
-  grid-column: 12 / 21;
+  grid-column: 5 / 8;
   display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: auto;
+  grid-row: 4/6;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: minmax(115px, 1fr);
+}
+@media (min-width: 970px) {
+  .columns .header .asideCalendar {
+    grid-column: 12 / 21;
+  }
 }
 .columns .header .asideCalendar div:nth-child(1) {
   background: black;
@@ -103,6 +154,142 @@ h1 {
 .columns .header .asideCalendar div:nth-child(2) a {
   display: block;
   color: black;
+}
+.columns .header .besideCalendar {
+  grid-column: 1 / 8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+ul {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  transition: height 1s, opacity 1s;
+}
+ul .hide {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: height 1s, opacity 1s;
+}
+
+#top {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto;
+  font-family: -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Helvetica Neue, sans-serif;
+}
+@media (min-width: 970px) {
+  #top {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: auto;
+  }
+}
+@media (min-width: 970px) {
+  #top > header {
+    grid-column: 1 / 13;
+  }
+}
+#top > header .inner {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto;
+  background-color: yellow;
+  position: fixed;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto;
+}
+@media (min-width: 970px) {
+  #top > header .inner {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: auto;
+  }
+}
+@media (min-width: 970px) {
+  #top > header .inner {
+    grid-column: 1 / 13;
+  }
+}
+@media (min-width: 970px) {
+  #top > header .inner {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: auto;
+  }
+}
+@media (min-width: 970px) {
+  #top > header .inner .inner-content {
+    grid-column: 3 / 10;
+  }
+}
+#top nav {
+  background-color: #fff;
+}
+@media (min-width: 970px) {
+  #top nav {
+    grid-column: 3 / 5;
+  }
+}
+#top nav > ul {
+  position: fixed;
+  height: 100%;
+  padding: 1rem 0;
+}
+#top nav ul {
+  list-style: none;
+}
+#top nav ul li {
+  font-size: 1.25rem;
+  padding: 0.5rem 0;
+}
+#top nav ul li a {
+  text-decoration: none;
+  color: #565656;
+}
+#top nav ul li ul {
+  padding: 0.25rem;
+}
+#top nav ul li ul li {
+  padding: 0.25rem;
+  font-size: 1rem;
+}
+#top main {
+  background-color: #dadada;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto;
+}
+@media (min-width: 970px) {
+  #top main {
+    grid-column: 5 / 13;
+  }
+}
+@media (min-width: 970px) {
+  #top main {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: auto;
+  }
+}
+@media (min-width: 970px) {
+  #top main > section {
+    grid-column: 2 / 9;
+  }
+}
+#top footer {
+  background-color: #CFCFCF;
+}
+@media (min-width: 970px) {
+  #top footer {
+    grid-column: 1 / 13;
+  }
 }
 
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
@@ -437,4 +624,4 @@ template {
   display: none;
 }
 
-/*# sourceMappingURL=ie-design-system.css.map */
+/*# sourceMappingURL=design-system.css.map */

@@ -1,28 +1,23 @@
 /// Sets the element as a grid container. You should use this when a bespoke grid is necessary.
 /// @group grid
 ///
-/// @author David Johnson
 /// @param {Number} $columns [$grid-columns]
 ///     The number of columns to use.
 /// @param {String} $row-gap [$grid-gap]
 ///     The gutter size between rows.
 /// @param {String} $column-gap [$grid-gap]
 ///     The gutter size between columns.
-h1{
-  color: blue;
-}
 
-@mixin grid($columns: $grid-columns, $row-gap: $grid-gap, $column-gap: $grid-gap) {
-  display: grid;
-  grid-gap: $row-gap $column-gap;
-  grid-template-columns: repeat($columns, 1fr);
-  grid-template-rows: auto;
-}
+// @mixin grid($columns: $grid-columns, $row-gap: $grid-gap, $column-gap: $grid-gap) {
+//   display: grid;
+//   grid-gap: $row-gap $column-gap;
+//   grid-template-columns: repeat($columns, 1fr);
+//   grid-template-rows: auto;
+// }
 
 /// Sets the element as a grid container for a specific breakpoint.
 /// @group grid
 ///
-/// @author David Johnson
 /// @param {String} $breakpoint [xs]
 ///     The breakpoint to target.
 
@@ -41,7 +36,6 @@ h1{
 /// Generates grids for all breakpoints.
 /// @group grid
 ///
-/// @author David Johnson
 
 @mixin grids() {
   @each $breakpoint, $value in $grids {
@@ -60,7 +54,6 @@ h1{
 ///
 /// @group grid
 ///
-/// @author David Johnson
 /// @param {String} breakpoint [xs]
 ///     The breakpoint to target
 /// @param {Number|Length(%)} $start
@@ -104,7 +97,7 @@ h1{
 ///
 /// @group grid
 ///
-/// @author David Johnson
+
 /// @param {String} breakpoint [xs]
 ///     The breakpoint to target
 /// @return {Number} The number of columns.
