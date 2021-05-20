@@ -1,7 +1,7 @@
 .container {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: auto;
+  grid-template-rows: repeat(3, 1fr);
 }
 @media (min-width: 970px) {
   .container {
@@ -103,11 +103,15 @@
 .columns .header {
   font-family: Arial, sans-serif;
   display: grid;
-  grid-template-columns: repeat(11, 1fr);
-  grid-template-rows: auto;
-  display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: auto;
+  grid-template-rows: repeat(3, 1fr);
+}
+@media (min-width: 970px) {
+  .columns .header {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: auto;
+  }
 }
 .columns .header .mainPost {
   grid-column: 1 / 8;
@@ -116,7 +120,7 @@
 }
 @media (min-width: 970px) {
   .columns .header .mainPost {
-    grid-column: 1 / 14;
+    grid-column: 1 / 7;
   }
 }
 .columns .header .asidePost {
@@ -125,7 +129,7 @@
 }
 @media (min-width: 970px) {
   .columns .header .asidePost {
-    grid-column: 14 / 21;
+    grid-column: 7 / 14;
   }
 }
 .columns .header .asideCalendar {
@@ -134,22 +138,27 @@
   grid-template-columns: repeat(11, 1fr);
   grid-template-rows: auto;
   grid-row: 4/6;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: minmax(115px, 1fr);
 }
 @media (min-width: 970px) {
   .columns .header .asideCalendar {
-    grid-column: 12 / 21;
+    grid-column: 7 / 14;
+  }
+}
+@media (max-width: 1169px) {
+  .columns .header .asideCalendar {
+    border: 1px solid red;
   }
 }
 .columns .header .asideCalendar div:nth-child(1) {
   background: black;
   color: white;
-  grid-column: 1/6;
+  grid-column: 1/5;
 }
 .columns .header .asideCalendar div:nth-child(2) {
   background: blue;
-  grid-column: 6/7;
+  grid-column: 5/6;
 }
 .columns .header .asideCalendar div:nth-child(2) a {
   display: block;
@@ -157,6 +166,11 @@
 }
 .columns .header .besideCalendar {
   grid-column: 1 / 8;
+}
+@media (min-width: 970px) {
+  .columns .header .besideCalendar {
+    grid-column: 1 / 7;
+  }
 }
 
 html {
@@ -179,7 +193,7 @@ ul .hide {
 #top {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: auto;
+  grid-template-rows: repeat(3, 1fr);
   font-family: -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Helvetica Neue, sans-serif;
 }
 @media (min-width: 970px) {
@@ -197,13 +211,13 @@ ul .hide {
 #top > header .inner {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: auto;
+  grid-template-rows: repeat(3, 1fr);
   background-color: yellow;
   position: fixed;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: auto;
+  grid-template-rows: repeat(3, 1fr);
 }
 @media (min-width: 970px) {
   #top > header .inner {
@@ -264,7 +278,7 @@ ul .hide {
   background-color: #dadada;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: auto;
+  grid-template-rows: repeat(3, 1fr);
 }
 @media (min-width: 970px) {
   #top main {

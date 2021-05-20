@@ -3,11 +3,11 @@ background: green;
 
   .header{
   font-family: Arial, sans-serif;
-  	@include grid(lg);
-  	@include grid(xs);
+  	@include grids;
+  //	@include grid(xs);
 
   	.mainPost{
-	   	@include grid-column(lg, 1, 14);
+	   	@include grid-column(lg, 1, 7);
         @include grid-column(xs, 1, 8);
 
         background: grey;
@@ -15,31 +15,33 @@ background: green;
   	}
   	.asidePost{
   	  	background: yellow;
-  		@include grid-column(lg, 14, 21);
+  		@include grid-column(lg, 7, 14);
         @include grid-column(xs, 1, 5);
   	}
 
   	.asideCalendar{
-  		@include grid-column(lg, 12, 21);
+  		@include grid-column(lg, 7, 14);
         @include grid-column(xs, 5, 8);
 
-  		// display: grid;
         @include grid(lg);
-        // This below should be only for xs screens
-        grid-row: 4/6;
 
-    	grid-template-columns: repeat(6, 1fr);
+		@include media-breakpoint-down(lg){
+			border: 1px solid red;
+		}
+        grid-row: 4/6;
+    	grid-template-columns: repeat(5, 1fr);
   		grid-template-rows: minmax(115px, 1fr);
 
   		div{
  			&:nth-child(1){
  				background: black;
  				color: white;
- 				    grid-column: 1 /6;
+ 				grid-column: 1 / 5;
  			}	
   			&:nth-child(2){
   				background: blue;
-  				    grid-column: 6 / 7;
+  				grid-column: 5 / 6;
+
   				a{
   					display:block;
   					color: black;
@@ -49,7 +51,7 @@ background: green;
   	}
 
     .besideCalendar{
-        // @include grid-column(lg, 12, 21);
+         @include grid-column(lg, 1, 7);
         @include grid-column(xs, 1, 8);
     }
   }

@@ -44,7 +44,12 @@
       display: grid;
       grid-gap: map-get($grid, row-gap) map-get($grid, column-gap);
       grid-template-columns: repeat(map-get($grid, columns), 1fr);
-      grid-template-rows: auto;
+
+      @if(map-has-key($grid, rows)){
+        grid-template-rows: repeat(map-get($grid, rows), 1fr);
+      } @else {
+        grid-template-rows: auto;
+      }
     }
   }
 }

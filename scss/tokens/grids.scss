@@ -6,10 +6,13 @@
 $grids: (
   xs: (
     columns: 7,
-    gutter: 1rem
+    gutter: 1rem,
+    rows: 3,
   ),
+
   lg: (
     columns: 11,
-    gutter: 1.5rem
+    gutter: 1.5rem,
+    //rows: 2,
   )
 ) !default;

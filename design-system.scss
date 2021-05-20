@@ -7,16 +7,16 @@
 /// @type Boolean
 $use-normalize: true !default;
 
-@import 'scss/vendor/normalize';
+@use 'scss/vendor/normalize' as nrm;
 
-@import 'scss/foundation/accessibility';
-@import 'scss/foundation/animation';
-@import 'scss/foundation/borders';
-@import 'scss/foundation/breakpoints';
-@import 'scss/foundation/colours';
-@import 'scss/foundation/grids';
-@import 'scss/foundation/spacing';
-@import 'scss/foundation/typography';
+@import 'scss/system/accessibility-syst';
+@import 'scss/system/animation-syst';
+@import 'scss/system/borders-syst';
+@import 'scss/system/breakpoints-syst';
+@import 'scss/system/colours-syst';
+@import 'scss/system/grids-syst';
+@import 'scss/system/spacing-syst';
+@import 'scss/system/typography-syst';
 
 @import 'scss/tokens/animation';
 @import 'scss/tokens/borders';
@@ -31,5 +31,5 @@ $use-normalize: true !default;
 @import 'scss/examples/html-test-page';
 
 @if ($use-normalize) {
-  @include normalize();
+  @include nrm.normalize();
 }
