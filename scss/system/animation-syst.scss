@@ -1,6 +1,8 @@
+@use "../tokens/animation" as ta;
+
 @mixin animation($animation, $duration: default, $delay: 0s) {
   animation-delay: $delay;
-  animation-duration: map-get($animation-duration, $duration);
+  animation-duration: map-get(ta.$animation-duration, $duration);
   animation-name: $animation;
 }
 
@@ -34,7 +36,7 @@
 ///   // Example of setting vertical rhythm properties
 ///   div.transition-border {
 ///     @include transition(border-width);
-///     border: 1px solid #aaa;]
+///     border: 1px solid #aaa;
 ///
 ///     &::hover {
 ///       border-width: 5px;
@@ -42,14 +44,14 @@
 ///
 ///   }
 
-@mixin transition($transition, $duration: default, $easing: $animation-easing-base, $direction: in) {
-  transition: unquote($transition) map-get($animation-duration, $duration) map-get(map-get($animation-easing, $direction), $easing);
+@mixin transition($transition, $duration: default, $easing: ta.$animation-easing-base, $direction: in) {
+  transition: unquote($transition) map-get(ta.$animation-duration, $duration) map-get(map-get(ta.$animation-easing, $direction), $easing);
 }
 
-@mixin transition-opacity($duration: default, $easing: $animation-easing-base, $direction: in) {
-  transition: opacity map-get($animation-duration, $duration) map-get(map-get($animation-easing, $direction), $easing);
+@mixin transition-opacity($duration: default, $easing: ta.$animation-easing-base, $direction: in) {
+  transition: opacity map-get(ta.$animation-duration, $duration) map-get(map-get(ta.$animation-easing, $direction), $easing);
 }
 
-@mixin transition-transform($duration: default, $easing: $animation-easing-base, $direction: in) {
-  transition: transform map-get($animation-duration, $duration) map-get(map-get($animation-easing, $direction), $easing);
+@mixin transition-transform($duration: default, $easing: ta.$animation-easing-base, $direction: in) {
+  transition: transform map-get(ta.$animation-duration, $duration) map-get(map-get(ta.$animation-easing, $direction), $easing);
 }

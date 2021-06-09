@@ -1,31 +1,34 @@
+@use "../system/grids-syst" as sg;
+@use "../system/breakpoints-syst.scss" as sb;
+
 .columns {
 background: green;
 
   .header{
   font-family: Arial, sans-serif;
-  	@include grids;
+  	@include sg.grids;
   //	@include grid(xs);
 
   	.mainPost{
-	   	@include grid-column(lg, 1, 7);
-        @include grid-column(xs, 1, 8);
+	   	@include sg.grid-column(lg, 1, 7);
+        @include sg.grid-column(xs, 1, 8);
 
         background: grey;
         grid-row: 1/4; //There should be a mixin for rows
   	}
   	.asidePost{
   	  	background: yellow;
-  		@include grid-column(lg, 7, 14);
-        @include grid-column(xs, 1, 5);
+  		@include sg.grid-column(lg, 7, 14);
+        @include sg.grid-column(xs, 1, 5);
   	}
 
   	.asideCalendar{
-  		@include grid-column(lg, 7, 14);
-        @include grid-column(xs, 5, 8);
+  		@include sg.grid-column(lg, 7, 14);
+        @include sg.grid-column(xs, 5, 8);
 
-        @include grid(lg);
+        @include sg.grid(lg);
 
-		@include media-breakpoint-down(lg){
+		@include sb.media-breakpoint-down(lg){
 			border: 1px solid red;
 		}
         grid-row: 4/6;
@@ -51,8 +54,8 @@ background: green;
   	}
 
     .besideCalendar{
-         @include grid-column(lg, 1, 7);
-        @include grid-column(xs, 1, 8);
+         @include sg.grid-column(lg, 1, 7);
+        @include sg.grid-column(xs, 1, 8);
     }
   }
 }

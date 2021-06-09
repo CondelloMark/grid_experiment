@@ -1,3 +1,7 @@
+@use "../tokens/grids.scss" as tg;
+@use "../system/breakpoints-syst.scss" as sb;
+@use "../tokens/breakpoints.scss" as tb;
+
 /// Sets the element as a grid container. You should use this when a bespoke grid is necessary.
 /// @group grid
 ///
@@ -22,7 +26,7 @@
 ///     The breakpoint to target.
 
 @mixin grid($breakpoint: xs) {
-  $grid: map-get($grids, $breakpoint);
+  $grid: map-get(tg.$grids, $breakpoint);
 
   @if $grid == null {
     @error 'Grid `#{$breakpoint}` not found.';
@@ -38,9 +42,9 @@
 ///
 
 @mixin grids() {
-  @each $breakpoint, $value in $grids {
-    @include media-breakpoint-up($breakpoint) {
-      $grid: map-get($grids, $breakpoint);
+  @each $breakpoint, $value in tg.$grids {
+    @include sb.media-breakpoint-up($breakpoint) {
+      $grid: map-get(tg.$grids, $breakpoint);
       display: grid;
       grid-gap: map-get($grid, row-gap) map-get($grid, column-gap);
       grid-template-columns: repeat(map-get($grid, columns), 1fr);
@@ -69,7 +73,7 @@
 ///     stop at the last column, you will need to set this parameter to 13)
 
 @mixin grid-column($breakpoint: xs, $start: null, $end: null) {
-  $grid: map-get($grids, $breakpoint);
+  $grid: map-get(tg.$grids, $breakpoint);
 
   @if $grid == null {
     @error 'Grid `#{$breakpoint}` not found.';
@@ -93,7 +97,7 @@
     $end: round($grid-columns * (strip-unit($end) / 100)) + 1;
   }
 
-  @include media-breakpoint-up($breakpoint) {
+  @include sb.media-breakpoint-up($breakpoint) {
     grid-column: unquote('#{$start} / #{$end}');
   }
 }
@@ -124,3 +128,25 @@
 
   @return $number;
 }
+
+
+@mixin cols-of($col-width, $col-gap: 10px){
+    $col-width : strip-unit($col-width);
+
+    .cols-of-#{$col-width}px {
+      display: grid;
+      gap: $col-gap;
+      grid-template-columns: repeat(auto-fit, minmax(unquote('#{$col-width}px'), 1fr));
+    }
+}
+
+
+//have an option to set up pixels values for columns
+//we want to aim to back end devs to use a utility class for building columns like this
+
+//increments should be set for the columns size unit eg: 10px increments
+// .cols-of-200px {
+//   display: grid;
+//   gap: 10px;
+//   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+// }

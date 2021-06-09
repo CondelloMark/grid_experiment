@@ -1,3 +1,5 @@
+@use "../tokens/typography.scss" as tt;
+
 /// typography
 /// =============================================================================
 /// Returns the font stack for a given family.
@@ -8,7 +10,7 @@
 /// @return {String} The font stack for the family.
 
 @function font-family($family: base) {
-  $fetched-value: map-get($font-family, $family);
+  $fetched-value: map-get( tt.$font-family, $family);
 
   @if $fetched-value != null {
     @return $fetched-value;

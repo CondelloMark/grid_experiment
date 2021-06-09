@@ -1,3 +1,5 @@
+@use "../tokens/breakpoints.scss" as tb;
+
 // breakpoint-next
 // =============================================================================
 /// Gets the next breakpoint in a map.
@@ -107,7 +109,7 @@
 ///  }
 ///
 
-@mixin media-breakpoint-up($name, $breakpoints: $breakpoints) {
+@mixin media-breakpoint-up($name, $breakpoints: tb.$breakpoints) {
   $min: breakpoint-min($name, $breakpoints);
 
   @if $min {
@@ -145,7 +147,7 @@
 ///     }
 ///  }
 
-@mixin media-breakpoint-down($name, $breakpoints: $breakpoints) {
+@mixin media-breakpoint-down($name, $breakpoints: tb.$breakpoints) {
   $max: breakpoint-max($name, $breakpoints);
 
   @if $max {

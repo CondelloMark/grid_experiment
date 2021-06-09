@@ -1,5 +1,7 @@
-$focus-offset-default: 3px !default;
-$focus-radius: 0 !default;
+@use "../tokens/accessibility" as ts;
+
+// ta.$focus-offset-default: 3px !default;
+// ta.$focus-radius: 0 !default;
 
 // Accessibility - visually-hidden
 // =============================================================================
@@ -34,7 +36,7 @@ $focus-radius: 0 !default;
 /// @group accessibility
 /// @access public
 
-/// @param {Length(px)} $size [$focus-offset-default]
+/// @param {Length(px)} $size [ta.$focus-offset-default]
 ///   The size of the border.
 ///
 /// @param {Boolean} $inside [false]
@@ -45,7 +47,7 @@ $focus-radius: 0 !default;
 ///    @include focus();
 ///  }
 
-@mixin focus($size: $focus-offset-default, $inside: false) {
+@mixin focus($size: ta.$focus-offset-default, $inside: false) {
   position: relative;
 
   &:focus {
@@ -79,7 +81,7 @@ $focus-radius: 0 !default;
 ///     }
 ///  }
 
-@mixin focus-base($size: $focus-offset-default, $inside: false) {
+@mixin focus-base($size: ta.$focus-offset-default, $inside: false) {
   $focus-offset: $size !default;
   $focus-position: 0 !default;
   $focus-size: 0 !default;
@@ -93,7 +95,7 @@ $focus-radius: 0 !default;
     $focus-size: calc(100% - (2 * #{$focus-offset}));
   }
   border-color: currentColor;
-  border-radius: $focus-radius;
+  border-radius: ta.$focus-radius;
   border-style: dotted;
   border-width: 1px;
   content: ' ';
@@ -159,10 +161,10 @@ $focus-radius: 0 !default;
 /// @group accessibility
 /// @access public
 
-/// @param {Length(px)} $size [$focus-offset-default]
+/// @param {Length(px)} $size [ta.$focus-offset-default]
 ///   The colour of the border.
 ///
-/// @param {Length(px)} $offset [$focus-offset-default]
+/// @param {Length(px)} $offset [ta.$focus-offset-default]
 ///   The border offset.
 ///
 /// @example scss SCSS
@@ -174,7 +176,7 @@ $focus-radius: 0 !default;
 ///    @include focus-inline(4px);
 ///  }
 
-@mixin focus-inline($size: $focus-offset-default, $offset: $focus-offset-default) {
+@mixin focus-inline($size: ta.$focus-offset-default, $offset: ta.$focus-offset-default) {
   &:focus {
     outline: $size dotted currentColor;
     outline-offset: $offset;

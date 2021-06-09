@@ -1,3 +1,4 @@
+
 /// The number of grid columns.
 ///
 /// @group tokens
@@ -11,8 +12,8 @@ $grids: (
   ),
 
   lg: (
-    columns: 11,
-    gutter: 1.5rem,
+    columns: 12,
+    gutter: 1rem,
     //rows: 2,
   )
 ) !default;

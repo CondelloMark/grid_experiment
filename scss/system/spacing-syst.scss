@@ -1,3 +1,5 @@
+@use "../tokens/spacing" as ts;
+
 /// spacing
 /// =============================================================================
 /// Returns a number from the spacing map based on the key
@@ -27,7 +29,7 @@
 ///  }
 ///
 
-@function spacing($variant: default, $map: $spacing-map) {
+@function spacing($variant: default, $map: ts.$spacing-map) {
   $value: map-get($map, $variant);
 
   @if type-of($value) == number {

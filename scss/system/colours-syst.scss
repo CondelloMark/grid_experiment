@@ -1,3 +1,5 @@
+@use "../tokens/colours" as tc;
+
 /// Returns the colour value for a given colour name and group.
 /// @access private
 /// @group colours
@@ -9,10 +11,10 @@
 /// @return {Color} The colour value.
 
 @function colour($hue, $value: base) {
-  $colour: map-get(map-get($colours, $hue), $value);
+  $colour: map-get(map-get(tc.$colours, $hue), $value);
 
-  @if map-has-key($colours, $colour) {
-    $colour: map-get(map-get($colours, $colour), $value);
+  @if map-has-key(tc.$colours, $colour) {
+    $colour: map-get(map-get(tc.$colours, $colour), $value);
   }
 
   @if type-of($colour) == color {

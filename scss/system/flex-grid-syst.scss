@@ -1,0 +1,62 @@
+@use "../tokens/grids" as ta;
+@use "../system/breakpoints-syst.scss" as sb;
+@use "../tokens/breakpoints.scss" as tb;
+
+@mixin flex-row($breakpoint: xs) {
+    $grid: map-get(ta.$grids, $breakpoint);
+  
+    @if $grid == null {
+      @error 'Grid `#{$breakpoint}` not found.';
+    }
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+    $cols: map-get($grid, columns);
+    $gutter: map-get($grid, gutter);
+    @include sb.media-breakpoint-up($breakpoint) {
+        @for $i from 1 through $cols{
+            .#{$breakpoint}-#{$i} {
+                width: $i / $cols * 100 * 1%;
+            }
+
+            .#{$breakpoint}-#{$i}.padd {
+                width: calc(#{$i / $cols * 100 * 1%} - #{$gutter * 2});
+                padding-left:  $gutter;
+                padding-right: $gutter;
+            }
+
+            .#{$breakpoint}-#{$i}.mrg {
+                width: calc(#{$i / $cols * 100 * 1%} - #{$gutter * 2});
+                margin-left:  $gutter;
+                margin-right: $gutter;
+            }
+
+            .#{$breakpoint}-#{$i}.mrg.padd {
+                width: calc(#{$i / $cols * 100 * 1%} - #{$gutter * 4});
+            }
+
+        }
+    }
+
+    &.justify-between {
+        justify-content: space-between;
+    }
+    &.justify-start {
+        justify-content: flex-start;
+    }
+    &.justify-end {
+        justify-content: flex-end;
+    }
+
+
+    &.align-center {
+        align-content: center;
+    }
+    &.align-top {
+        align-content: flex-start;
+    }
+    &.align-bottom {
+        align-content: flex-end;
+    }
+}

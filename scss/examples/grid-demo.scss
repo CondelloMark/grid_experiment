@@ -1,5 +1,12 @@
+@use "../system/grids-syst" as sg;
+@use "../system/flex-grid-syst" as sf;
+
+.flex-grid {
+  @include sf.flex-row(lg);
+}
+
 .container {
-  @include grids();
+  @include sg.grids();
 
   .header,
   .footer,
@@ -16,8 +23,8 @@
 
   .header,
   .footer {
-    @include grid-column(xs, 1, 8);
-    @include grid-column(lg, 1, 13);
+    @include sg.grid-column(xs, 1, 8);
+    @include sg.grid-column(lg, 1, 13);
 
       background-color: #eee;
     h1{
@@ -26,47 +33,47 @@
   }
 
   .main {
-    @include grid(xs);
-    @include grid(lg);
+    @include sg.grid(xs);
+    @include sg.grid(lg);
 
-    @include grid-column(xs, 1, 13);
-    @include grid-column(lg, 1, 21);
+    @include sg.grid-column(xs, 1, 13);
+    @include sg.grid-column(lg, 1, 21);
    
     .section {
-      @include grid-column(xs, 1, 4); 
-      @include grid-column(lg, 1, 12);//75%
+      @include sg.grid-column(xs, 1, 4); 
+      @include sg.grid-column(lg, 1, 12);//75%
       background-color: #bbb;
     }
 
     .aside {
-      @include grid-column(xs, 1, 12); //75%, 100%
-      @include grid-column(lg, 10, 13); //75%, 100%
+      @include sg.grid-column(xs, 1, 12); //75%, 100%
+      @include sg.grid-column(lg, 10, 13); //75%, 100%
 
       background-color: #aaa;
     }
 
     .offset-percent {
-      @include grid-column(xs, 10%, 100%); //33%, 100%
+      @include sg.grid-column(xs, 10%, 100%); //33%, 100%
       background-color: #ccc;
     }
 
     .offset-index {
-      @include grid-column(xs, 5, 10 );  
+      @include sg.grid-column(xs, 5, 10 );  
       background-color: #ccc;
     }
 
     .offset-double {
-      @include grid-column(xs, 3, 70%);  
+      @include sg.grid-column(xs, 3, 70%);  
       background-color: #ccc;
       color: red;
     }
 
     .one-container {
-      @include grid(xs);
-      @include grid(lg);
+      @include sg.grid(xs);
+      @include sg.grid(lg);
 
-      @include grid-column(lg, 1, 22);
-      @include grid-column(xs, 1, 13);
+      @include sg.grid-column(lg, 1, 22);
+      @include sg.grid-column(xs, 1, 13);
 
     }
   }

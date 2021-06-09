@@ -1,3 +1,6 @@
+@use '../tokens/borders' as tb;
+
+
 /// border
 /// =============================================================================
 /// Places a border on the element. NOTE: this will break the 8px grid if the
@@ -83,7 +86,7 @@
 ///     @include border-outside(5px, dashed, #fff);
 ///   }
 
-@mixin border-outside($size: 1px, $type: solid, $colour: #000, $radius: $border-radius) {
+@mixin border-outside($size: 1px, $type: solid, $colour: #000, $radius: tb.$border-radius) {
   position: relative;
 
   &::after {
@@ -120,7 +123,7 @@
 ///     @include border-radius(4px);
 ///   }
 
-@mixin border-radius($radius: $border-radius) {
+@mixin border-radius($radius: tb.$border-radius) {
   border-radius: $radius;
 }
 

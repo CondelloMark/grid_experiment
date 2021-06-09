@@ -1,7 +1,15 @@
+@use "../system/grids-syst" as sg;
+@use "../system/typography-syst" as st;
+@use "../system/colours-syst" as sc;
+@use "../system/accessibility-syst" as sa;
+@use "../system/borders-syst" as sb;
+@use "../system/animation-syst" as san;
+@use "../system/spacing-syst" as ss;
 
 html {
     scroll-behavior: smooth;
 }
+
 ul {
     height: auto;
     opacity: 1;
@@ -16,54 +24,52 @@ ul {
     }
 }
 
-  #top {
-
-    @include grids();
-     font-family: font-family();
+#top {
+    @include sg.grids();
+    font-family: st.font-family();
      //grid-template-rows: 1fr 1fr;
 
      > header {
-        @include grid-column(lg, 1, 13);
+        @include sg.grid-column(lg, 1, 13);
 
         .inner {
-            @include grids();
-            @include grid-column(lg, 1, 13);
-            background-color: yellow;
+            @include sg.grids();
+            @include sg.grid-column(lg, 1, 13);
+            background-color: sc.colour('html-test', 'header');
             position: fixed;
             width: 100%;
-            @include grids();
+            @include sg.grids();
+            z-index: 1;
 
             .inner-content{
-                @include grid-column(lg, 3, 10);
+                @include sg.grid-column(lg, 3, 10);
+            
+                p {
+                    //@include sa.visually-hidden;
+                }
             }
         }
-        // + section{
-        //     @include grid-column(lg, 1, 13);
-        // }
+ 
     }
 
-    nav {
-        @include grid-column(lg, 3, 5);
-        background-color: #fff;
+    > nav {
+        @include sg.grid-column(lg, 3, 5);
+         background: sc.colour('html-test', 'text');
 
-
-        // ToDo: Create menu drop downs on hover
        > ul {
             position: fixed;
             height: 100%;  
             padding: 1rem 0;
-  
         }
 
         ul {
-
             list-style: none;
             li {
                 font-size: 1.25rem;
                 padding: .5rem 0;
                 a {
                     text-decoration: none;
-                    color: #565656;
+                    color: sc.colour('html-test', 'dark');;
                 }
                 ul {
                     padding: .25rem;
@@ -78,20 +84,36 @@ ul {
     }
 
     main {
-        @include grid-column(lg, 5, 13);
-        background-color: #dadada;
+        @include sg.grid-column(lg, 5, 13);
+        background-color: sc.colour('html-test', 'main');
  
-        @include grids();
+        @include sg.grids();
         > section {
+            @include sg.grid-column(lg, 2, 9);
 
-            @include grid-column(lg, 2, 9);
- 
+            article {
+                @include sb.border-outside(1px, dashed, sc.colour('html-test', 'text'), 0);
+                padding: .5rem;
+
+                padding: ss.spacing(md);
+                margin-bottom: 1rem;
+                color: sc.colour('html-test', 'dark');
+                @include san.transition(color);
+
+                &:hover {
+                    color: sc.colour('html-test' );
+                    @include san.transition(color);
+                     //sc.colour('html-test', 'header');
+                }
+            }
         }
     }
 
     footer {
-        @include grid-column(lg, 1, 13);
-        background-color: #CFCFCF;
+        @include sg.grid-column(lg, 1, 13);
+        background-color: sc.colour('html-test');
     }
-  }
+}
+ 
+@include sg.cols-of(200, 20px);
  

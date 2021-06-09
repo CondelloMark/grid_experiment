@@ -5,9 +5,11 @@ $colours: (
   'white': (
     'base': #fff,
   ),
-  'grey': (
+  'html-test': (
     'text': #fff,
     'dark': #333,
-    'base': #888
+    'base': #888,
+    'main': #dadada,
+    'header': #ffff00,
   ),
 ) !default;

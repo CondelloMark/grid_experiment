@@ -1,4 +1,9 @@
 @charset 'utf-8';
+@use 'scss/vendor/normalize' as nrm;
+
+@use 'scss/examples/grid-demo';
+@use 'scss/examples/mmw_home';
+@use 'scss/examples/html-test-page';
 
 /// If you do not want to include normalize.css in your project, set this
 /// variable to false.
@@ -6,29 +11,6 @@
 /// @group configuration
 /// @type Boolean
 $use-normalize: true !default;
-
-@use 'scss/vendor/normalize' as nrm;
-
-@import 'scss/system/accessibility-syst';
-@import 'scss/system/animation-syst';
-@import 'scss/system/borders-syst';
-@import 'scss/system/breakpoints-syst';
-@import 'scss/system/colours-syst';
-@import 'scss/system/grids-syst';
-@import 'scss/system/spacing-syst';
-@import 'scss/system/typography-syst';
-
-@import 'scss/tokens/animation';
-@import 'scss/tokens/borders';
-@import 'scss/tokens/breakpoints';
-@import 'scss/tokens/colours';
-@import 'scss/tokens/grids';
-@import 'scss/tokens/spacing';
-@import 'scss/tokens/typography';
-
-@import 'scss/examples/grid-demo';
-@import 'scss/examples/mmw_home';
-@import 'scss/examples/html-test-page';
 
 @if ($use-normalize) {
   @include nrm.normalize();

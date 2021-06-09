@@ -1,3 +1,6 @@
+//@use '../system/spacing-syst' as spacing; // needed to use fibanacci function
+
+
 /// The base spacing unit to use. This is the most crucial variable to get right, as it
 /// should be the basis for all sizes, margins, and padding. 8px is a recommended
 /// place to start.
@@ -49,19 +52,19 @@ $spacing-geometric: (
 
 /// Golden ratio/fibonacci map
 ///
-/// @group tokens
+/// @group tokenss
 /// @type Map
 
-$spacing-fibonacci: (
-  none: 0,
-  xxs: $spacing-base-factor * fibonacci(2),
-  xs: $spacing-base-factor * fibonacci(3),
-  default: $spacing-base-factor * fibonacci(4),
-  md: $spacing-base-factor * fibonacci(5),
-  lg: $spacing-base-factor * fibonacci(6),
-  xl: $spacing-base-factor * fibonacci(7),
-  xxl: $spacing-base-factor * fibonacci(8)
-);
+// $spacing-fibonacci: (
+//   none: 0,
+//   xxs: $spacing-base-factor * spacing.fibonacci(2),
+//   xs: $spacing-base-factor * spacing.fibonacci(3),
+//   default: $spacing-base-factor * spacing.fibonacci(4),
+//   md: $spacing-base-factor * spacing.fibonacci(5),
+//   lg: $spacing-base-factor * spacing.fibonacci(6),
+//   xl: $spacing-base-factor * spacing.fibonacci(7),
+//   xxl: $spacing-base-factor * spacing.fibonacci(8)
+// );
 
 /// The type of spacing map to use. Options include:
 /// - Linear ($spacing-linear)
